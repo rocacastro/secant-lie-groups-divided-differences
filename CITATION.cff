@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it as below."
+
+title: "Reproducibility code for the secant method on Lie groups via divided differences"
+type: software
+
+authors:
+  - family-names: Astudillo
+    given-names: "María del Pilar"
+    orcid: "https://orcid.org/0009-0002-9477-4957"
+  - family-names: Castro
+    given-names: "Rodrigo"
+    orcid: "https://orcid.org/0000-0003-0010-7775"
+  - family-names: Sierra
+    given-names: "Willy"
+    orcid: "https://orcid.org/0000-0003-3303-8032"
+
+repository-code: "https://github.com/rocastro/secant-lie-groups-divided-differences"
+url: "https://github.com/rocastro/secant-lie-groups-divided-differences"
+
+abstract: "Python code to reproduce the numerical experiments in the manuscript 'Semilocal Convergence of a Secant-Type Method on Lie Groups via Divided Differences'."
+
+keywords:
+  - Lie groups
+  - secant method
+  - divided differences
+  - semilocal convergence
+  - SO(2)
+  - SO(3)
+  - numerical methods
+
+license: MIT
+version: "1.0.0"
+date-released: "2026-06-30"

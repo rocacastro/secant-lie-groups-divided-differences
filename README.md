@@ -1,5 +1,6 @@
 # Reproducibility code for the secant method on Lie groups
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21092606.svg)](https://doi.org/10.5281/zenodo.21092606)
 This directory contains the Python scripts used to reproduce the numerical tables
 in the manuscript **Semilocal Convergence of a Secant-Type Method on Lie Groups via Divided Differences**.
 
@@ -46,3 +47,11 @@ The residuals and order estimates are deterministic. CPU and wall-clock timing v
 ## Reference output
 
 The directory `results/reference/` contains a text output from the timing run used when preparing the manuscript table. New runs write their own outputs to `results/current/`.
+
+## Citation
+
+If you use this code, please cite the archived Zenodo release:
+
+Rodrigo Castro, María del Pilar Astudillo, and Willy Sierra.  
+*Reproducibility code for the secant method on Lie groups via divided differences*.  
+Zenodo, 2026. DOI: 10.5281/zenodo.21092606.

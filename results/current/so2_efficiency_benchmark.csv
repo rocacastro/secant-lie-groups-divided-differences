@@ -1,0 +1,3 @@
+method,iterations,mean_order,wall_time_seconds,cpu_time_seconds,relative_wall_efficiency,relative_cpu_efficiency
+Algorithm 1,13,1.6182570547130298252,3.8893245760e-02,3.6300000000e-02,1.0,1.0
+Algorithm 2,13,1.6182570547130298252,3.0632491140e-02,2.8600000000e-02,1.2696729620e+00,1.2692307692e+00

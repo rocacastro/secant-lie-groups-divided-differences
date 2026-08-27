@@ -76,44 +76,44 @@ def compare_csv(
 def main() -> None:
     compare_csv(
         "so2_algorithm1_residuals.csv",
-        "so2_algorithm1_residuals_paper_reference.csv",
+        "so2_a1_res.csv",
         ["k", "residual_norm_F"],
     )
     compare_csv(
         "so2_algorithm1_orders.csv",
-        "so2_algorithm1_orders_paper_reference.csv",
+        "so2_a1_ord.csv",
         ["k", "rho_k"],
     )
     compare_csv(
         "so2_algorithm2_residuals.csv",
-        "so2_algorithm2_residuals_paper_reference.csv",
+        "so2_a2_res.csv",
         ["k", "residual_norm_F"],
     )
     compare_csv(
         "so2_algorithm2_orders.csv",
-        "so2_algorithm2_orders_paper_reference.csv",
+        "so2_a2_ord.csv",
         ["k", "rho_k"],
     )
     compare_csv(
         "so2_residual_comparison_alg1_alg2.csv",
-        "so2_residual_comparison_alg1_alg2_paper_reference.csv",
+        "so2_cmp_res.csv",
         ["k", "algorithm1_residual", "algorithm2_residual"],
     )
     compare_csv(
         "so2_order_estimates_alg1_alg2.csv",
-        "so2_order_estimates_alg1_alg2_paper_reference.csv",
+        "so2_cmp_ord.csv",
         ["k", "rho_algorithm1", "rho_algorithm2"],
     )
     compare_csv(
         "so3_alignment_bd_rankone_table.csv",
-        "so3_alignment_bd_rankone_table_paper_reference.csv",
+        "so3_align.csv",
         ["k", "residual_norm_F", "rho_k", "orthogonality_defect", "determinant"],
         rtol="1e-20",
         atol="1e-1190",
     )
     compare_csv(
         "so3_rotation_averaging_r1_table.csv",
-        "so3_rotation_averaging_r1_table_paper_reference.csv",
+        "so3_avg.csv",
         ["k", "residual_norm_F", "objective_J", "rho_k", "orthogonality_defect", "determinant"],
         rtol="1e-20",
         atol="1e-1190",

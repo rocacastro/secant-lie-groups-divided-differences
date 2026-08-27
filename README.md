@@ -66,11 +66,11 @@ timings depend on hardware, operating system, Python version, and system load.
 The directory `results/reference/` contains the outputs used when preparing the
 manuscript tables. In particular:
 
-- `so2_algorithms_efficiency_benchmark_output_paper_reference.txt` records the
+- `so2_bench.txt` records the
   timing run reported in Table 2.
-- `so3_alignment_bd_rankone_*_paper_reference.*` records the revised alignment
+- `so3_align.csv` and `so3_align.txt` record the revised alignment
   experiment used in Table 3.
-- `so3_rotation_averaging_r1_*_paper_reference.*` records the revised rotation
+- `so3_avg.csv` and `so3_avg.txt` record the revised rotation
   averaging experiment used in Table 4.
 
 A fresh run should reproduce the deterministic values to the reported precision.

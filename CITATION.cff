@@ -1,8 +1,10 @@
 cff-version: 1.2.0
-message: "If you use this code, please cite it as below."
+message: "If you use this software, please cite the archived Zenodo release."
 
 title: "Reproducibility code for the secant method on Lie groups via divided differences"
 type: software
+version: "2.0.0"
+date-released: "2026-08-27"
 
 authors:
   - family-names: Astudillo
@@ -15,25 +17,25 @@ authors:
     given-names: "Willy"
     orcid: "https://orcid.org/0000-0003-3303-8032"
 
-repository-code: "https://github.com/rocastro/secant-lie-groups-divided-differences"
-url: "https://github.com/rocastro/secant-lie-groups-divided-differences"
+repository-code: "https://github.com/rocacastro/secant-lie-groups-divided-differences"
+url: "https://github.com/rocacastro/secant-lie-groups-divided-differences"
 
-abstract: "Python code to reproduce the numerical experiments in the manuscript 'Semilocal Convergence of a Secant-Type Method on Lie Groups via Divided Differences'."
+abstract: >-
+  High-precision Python code reproducing the numerical experiments in the
+  manuscript 'Semilocal Convergence of a Secant-Type Method on Lie Groups via
+  Divided Differences'. Version 2.0.0 includes revised derivative-free SO(3)
+  experiments based on central function evaluations and exact rank-one secant
+  corrections.
 
 keywords:
   - Lie groups
   - secant method
   - divided differences
   - semilocal convergence
+  - rank-one secant correction
   - SO(2)
   - SO(3)
+  - rotation averaging
   - numerical methods
 
 license: MIT
-version: "1.0.0"
-date-released: "2026-06-30"
-doi: "10.5281/zenodo.21092606"
-
-identifiers:
-  - type: doi
-    value: "10.5281/zenodo.21092606"

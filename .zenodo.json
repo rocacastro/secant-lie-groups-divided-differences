@@ -1,0 +1,41 @@
+{
+  "title": "Reproducibility code for the secant method on Lie groups via divided differences",
+  "upload_type": "software",
+  "description": "High-precision Python code reproducing the numerical experiments in the manuscript 'Semilocal Convergence of a Secant-Type Method on Lie Groups via Divided Differences'. Version 2.0.0 includes revised derivative-free SO(3) experiments based on central function evaluations and exact rank-one secant corrections.",
+  "creators": [
+    {
+      "name": "Astudillo, María del Pilar",
+      "orcid": "0009-0002-9477-4957"
+    },
+    {
+      "name": "Castro, Rodrigo",
+      "orcid": "0000-0003-0010-7775"
+    },
+    {
+      "name": "Sierra, Willy",
+      "orcid": "0000-0003-3303-8032"
+    }
+  ],
+  "access_right": "open",
+  "license": "MIT",
+  "version": "2.0.0",
+  "publication_date": "2026-08-27",
+  "keywords": [
+    "Lie groups",
+    "secant method",
+    "divided differences",
+    "semilocal convergence",
+    "rank-one secant correction",
+    "SO(2)",
+    "SO(3)",
+    "rotation averaging",
+    "numerical methods"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/rocacastro/secant-lie-groups-divided-differences",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

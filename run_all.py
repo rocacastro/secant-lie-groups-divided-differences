@@ -1,4 +1,4 @@
-"""Run all reproducibility scripts for the numerical examples in the manuscript."""
+"""Run all reproducibility scripts for the numerical experiments in the manuscript."""
 from __future__ import annotations
 
 import subprocess
@@ -10,18 +10,22 @@ SCRIPTS = [
     "so2_algorithm1_matrix_high_precision.py",
     "so2_algorithm2_optimized_high_precision.py",
     "so2_algorithms_efficiency_benchmark.py",
-    "so3_secant_example2_restart_high_precision.py",
-    "so3_rotation_averaging_componentwise_alg3_high_precision.py",
+    "so3_alignment_bd_rankone_high_precision.py",
+    "so3_rotation_averaging_r1_high_precision.py",
 ]
 
 
 def main() -> None:
     for script in SCRIPTS:
+        path = ROOT / script
+        if not path.is_file():
+            raise FileNotFoundError(f"Missing reproducibility script: {path}")
         print("=" * 80)
         print(f"Running {script}")
         print("=" * 80)
-        subprocess.run([sys.executable, str(ROOT / script)], check=True)
-    print("\nAll scripts completed. Results are in results/current/.")
+        subprocess.run([sys.executable, str(path)], check=True, cwd=ROOT)
+    print("\nAll scripts completed successfully.")
+    print(f"Generated results: {ROOT / 'results' / 'current'}")
 
 
 if __name__ == "__main__":

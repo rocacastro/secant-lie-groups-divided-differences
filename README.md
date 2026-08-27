@@ -1,57 +1,100 @@
 # Reproducibility code for the secant method on Lie groups
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21092606.svg)](https://doi.org/10.5281/zenodo.21092606)
-This directory contains the Python scripts used to reproduce the numerical tables
+This repository contains the Python code used to reproduce the numerical tables
 in the manuscript **Semilocal Convergence of a Secant-Type Method on Lie Groups via Divided Differences**.
+
+This is the revised `v2.0.0` reproducibility package. The two `SO(3)` experiments
+now use derivative-free divided differences based on central function evaluations
+at the intrinsic midpoint and an exact rank-one secant correction.
 
 ## Requirements
 
-The scripts use only the Python standard library and `mpmath`.
+- Python 3.10 or later
+- `mpmath==1.3.0`
+
+Install the dependency with:
 
 ```bash
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
-
-The computations are high precision. Running the full benchmark may take a few minutes depending on the machine.
 
 ## Scripts and manuscript tables
 
-| Script | Purpose in the manuscript | Main output |
+| Script | Role in the manuscript | Main generated output |
 |---|---|---|
-| `so2_algorithm1_matrix_high_precision.py` | Algorithm 1 on \(SO(2)\) | Residuals and observed orders for Algorithm 1 |
-| `so2_algorithm2_optimized_high_precision.py` | Algorithm 2 on \(SO(2)\) | Residuals and observed orders for Algorithm 2 |
-| `so2_algorithms_efficiency_benchmark.py` | Comparison of Algorithms 1 and 2 | Residual comparison, order estimates, CPU-time benchmark |
-| `so3_secant_example2_restart_high_precision.py` | Algorithm 3 on \(SO(3)\), orientation alignment | Residual table for the alignment example |
-| `so3_rotation_averaging_componentwise_alg3_high_precision.py` | Algorithm 3 on \(SO(3)\), geodesic rotation averaging | Residual, objective and orthogonality-defect table |
+| `so2_algorithm1_matrix_high_precision.py` | Algorithm 1 on `SO(2)`; supports Table 1 | Residuals and observed orders |
+| `so2_algorithm2_optimized_high_precision.py` | Algorithm 2 on `SO(2)`; supports Table 1 | Residuals and observed orders |
+| `so2_algorithms_efficiency_benchmark.py` | Algorithms 1–2 CPU comparison; supports Table 2 | Residual comparison, order estimates, timing data |
+| `so3_alignment_bd_rankone_high_precision.py` | Orientation alignment on `SO(3)`; supports Table 3 | Block-diagonal central-difference core plus exact rank-one secant correction |
+| `so3_rotation_averaging_r1_high_precision.py` | Geodesic rotation averaging on `SO(3)`; supports Table 4 | Full central-difference core plus exact rank-one secant correction |
+| `so3_rankone_divdiff_utils.py` | Shared high-precision `SO(3)` operations and divided-difference utilities | Imported by the two `SO(3)` scripts |
 
-The first three scripts support the `SO(2)` comparison tables. The last two scripts support the two `SO(3)` examples.
+The `SO(2)` computations use 2500 decimal digits. The revised `SO(3)` computations
+use 1200 decimal digits, `tau = 0.1`, and stopping tolerance `1e-700`, matching the
+manuscript.
 
-## Running all scripts
+## Running all experiments
 
 ```bash
 python run_all.py
 ```
 
-All generated files are written to:
+Generated files are written to:
 
 ```text
 results/current/
 ```
 
-This directory is created automatically next to the scripts, regardless of the shell working directory.
+This directory is created automatically and is ignored by Git, except for its
+placeholder file.
 
-## Notes on timing values
+## Verifying deterministic results
 
-The residuals and order estimates are deterministic. CPU and wall-clock timing values depend on hardware, operating system, Python version and system load. For this reason, a fresh run may not reproduce the exact CPU seconds printed in the manuscript, although it should reproduce the same qualitative conclusion: Algorithm 2 has a lower average runtime than Algorithm 1 in the `SO(2)` test.
+After running all experiments, compare the deterministic numerical columns with
+the archived manuscript-reference outputs:
 
-## Reference output
+```bash
+python verify_reference.py
+```
 
-The directory `results/reference/` contains a text output from the timing run used when preparing the manuscript table. New runs write their own outputs to `results/current/`.
+The verifier checks residuals, order estimates, objective values, determinants,
+and orthogonality defects. It intentionally does not check CPU times, because
+timings depend on hardware, operating system, Python version, and system load.
+
+## Reference outputs
+
+The directory `results/reference/` contains the outputs used when preparing the
+manuscript tables. In particular:
+
+- `so2_algorithms_efficiency_benchmark_output_paper_reference.txt` records the
+  timing run reported in Table 2.
+- `so3_alignment_bd_rankone_*_paper_reference.*` records the revised alignment
+  experiment used in Table 3.
+- `so3_rotation_averaging_r1_*_paper_reference.*` records the revised rotation
+  averaging experiment used in Table 4.
+
+A fresh run should reproduce the deterministic values to the reported precision.
+The CPU-time values in Table 2 are retained as a reference measurement and are not
+expected to be hardware independent.
+
+## Main changes from v1.0.0
+
+- The component-wise `SO(3)` divided difference is no longer used.
+- The alignment experiment now uses a block-diagonal central-difference core and
+  an exact rank-one secant correction.
+- The rotation-averaging experiment now uses a full central-difference core and
+  an exact rank-one secant correction.
+- The revised `SO(3)` experiments reproduce an observed order close to the golden
+  ratio.
+- `run_all.py`, metadata, documentation, and reference outputs were updated.
+
+See `CHANGELOG.md` for additional details.
 
 ## Citation
 
-If you use this code, please cite the archived Zenodo release:
+Citation metadata are provided in `CITATION.cff`. After the GitHub release is
+archived by Zenodo, cite the DOI assigned to the corresponding release.
 
-Rodrigo Castro, María del Pilar Astudillo, and Willy Sierra.  
-*Reproducibility code for the secant method on Lie groups via divided differences*.  
-Zenodo, 2026. DOI: 10.5281/zenodo.21092606.
+## License
+
+The code is released under the MIT License. See `LICENSE`.

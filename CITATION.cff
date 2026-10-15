@@ -1,41 +1,33 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite the archived Zenodo release."
-
-title: "Reproducibility code for the secant method on Lie groups via divided differences"
+message: "Please cite this software when using its code or reference data."
+title: "Secant methods on Lie groups: code and reference data"
 type: software
-version: "2.0.0"
-date-released: "2026-08-27"
-
+version: "3.0.0"
 authors:
   - family-names: Astudillo
     given-names: "María del Pilar"
     orcid: "https://orcid.org/0009-0002-9477-4957"
   - family-names: Castro
-    given-names: "Rodrigo"
+    given-names: Rodrigo
     orcid: "https://orcid.org/0000-0003-0010-7775"
   - family-names: Sierra
-    given-names: "Willy"
+    given-names: Willy
     orcid: "https://orcid.org/0000-0003-3303-8032"
-
 repository-code: "https://github.com/rocacastro/secant-lie-groups-divided-differences"
 url: "https://github.com/rocacastro/secant-lie-groups-divided-differences"
-
 abstract: >-
-  High-precision Python code reproducing the numerical experiments in the
-  manuscript 'Semilocal Convergence of a Secant-Type Method on Lie Groups via
-  Divided Differences'. Version 2.0.0 includes revised derivative-free SO(3)
-  experiments based on central function evaluations and exact rank-one secant
-  corrections.
-
+  Reproducible numerical experiments for secant iterations on finite-dimensional
+  Lie groups. The package includes reduced divided differences for SO(3)
+  alignment and rotation averaging, a cached algorithmic secant and analytic
+  Newton comparison for a Bessel field on SO(10), high-precision scalar
+  validation on SO(2), exact rational checks, and reference data.
 keywords:
   - Lie groups
   - secant method
   - divided differences
   - semilocal convergence
-  - rank-one secant correction
-  - SO(2)
-  - SO(3)
+  - rank-one correction
   - rotation averaging
-  - numerical methods
-
+  - Bessel functions
+  - reproducible research
 license: MIT

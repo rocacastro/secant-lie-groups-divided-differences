@@ -1,0 +1,438 @@
+{
+  "definition": {
+    "n": 10,
+    "m": 45,
+    "P": 100,
+    "alpha": 0.15,
+    "scale": 0.4,
+    "offset": 3.0,
+    "radius": 0.1,
+    "delta": 0.01,
+    "tol": 1e-12,
+    "nu": "0,...,P-1",
+    "kappa": "(nu+1)/3",
+    "weights": "(1+0.25*cos(0.7*nu))/P"
+  },
+  "protocol": {
+    "blocks": 51,
+    "reps_per_block": 5,
+    "warmup_pairs": 20,
+    "blas_threads": 1,
+    "base_sha256": "140361986c803b86e46d6cb7c4190a5748f61e6a8efec966bcc7d21cabfd21b9"
+  },
+  "environment": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "threadpools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "/opt/pyvenv/lib/python3.13/site-packages/numpy.libs/libscipy_openblas64_-fdde5778.so",
+        "version": "0.3.30",
+        "threading_layer": "pthreads",
+        "architecture": "SkylakeX"
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "/opt/pyvenv/lib/python3.13/site-packages/scipy.libs/libscipy_openblas-6cdc3b4a.so",
+        "version": "0.3.30",
+        "threading_layer": "pthreads",
+        "architecture": "SkylakeX"
+      }
+    ]
+  },
+  "validation": {
+    "newton": {
+      "updates": 3,
+      "residuals": [
+        0.2439476321744464,
+        0.001019101335742441,
+        3.23478443627771e-08,
+        1.6747045952985e-16
+      ],
+      "root_distance_fro": 6.396892783998926e-16,
+      "F_calls": 4,
+      "J_calls": 3,
+      "sec_builds": 0,
+      "exp_calls": 3,
+      "bessel_F_batches": 4,
+      "bessel_J_batches": 3,
+      "fallbacks": 0
+    },
+    "secant": {
+      "updates": 4,
+      "residuals": [
+        0.2439476321744464,
+        0.000979494983995569,
+        1.7587070544105476e-05,
+        2.0632522783471853e-09,
+        4.1370067197245135e-15
+      ],
+      "root_distance_fro": 2.5729601400647614e-15,
+      "max_secant_defect": 4.009766711361311e-17,
+      "F_calls": 6,
+      "J_calls": 0,
+      "sec_builds": 4,
+      "exp_calls": 5,
+      "bessel_F_batches": 6,
+      "bessel_J_batches": 0,
+      "fallbacks": 0
+    },
+    "final_solution_distance": 2.5956433313322077e-15,
+    "max_directional_jacobian_rel_error": 2.6537015810726858e-11,
+    "mode_contributions": {
+      "root": {
+        "w_min": 3.0,
+        "w_max": 3.0,
+        "min_row_max": 0.0008860741882936072,
+        "median_row_max": 0.001564691068298533,
+        "max_row_max": 0.009564971081974584,
+        "rows_gt_1e-5": 100
+      },
+      "start": {
+        "w_min": 2.9723678674148126,
+        "w_max": 3.0361023975796204,
+        "min_row_max": 0.0010251124385620143,
+        "median_row_max": 0.0017139959563433997,
+        "max_row_max": 0.009615462883841927,
+        "rows_gt_1e-5": 100
+      }
+    }
+  },
+  "timing": {
+    "newton": {
+      "median_ms": 32.006908,
+      "q1_ms": 31.5898285,
+      "q3_ms": 32.5339508,
+      "min_ms": 31.177644,
+      "max_ms": 34.7850082
+    },
+    "secant": {
+      "median_ms": 28.133553,
+      "q1_ms": 27.7712209,
+      "q3_ms": 28.807859,
+      "min_ms": 27.3708066,
+      "max_ms": 33.572466399999996
+    },
+    "median_ratio_secant_over_newton": 0.8807853631014997,
+    "q1_ratio": 0.8730656708281619,
+    "q3_ratio": 0.8903472863666897,
+    "secant_faster_blocks": 50,
+    "blocks": 51
+  },
+  "blocks": [
+    {
+      "block": 0,
+      "newton": 32.170359600000005,
+      "secant": 28.133553,
+      "ratio": 0.8745178278952156
+    },
+    {
+      "block": 1,
+      "secant": 28.1730494,
+      "newton": 31.9287208,
+      "ratio": 0.8823732581231378
+    },
+    {
+      "block": 2,
+      "newton": 32.079705600000004,
+      "secant": 28.5342074,
+      "ratio": 0.889478468281205
+    },
+    {
+      "block": 3,
+      "secant": 28.226135600000003,
+      "newton": 32.1108658,
+      "ratio": 0.8790213186964272
+    },
+    {
+      "block": 4,
+      "newton": 31.948241399999997,
+      "secant": 28.220060399999998,
+      "ratio": 0.8833055956563544
+    },
+    {
+      "block": 5,
+      "secant": 27.9502682,
+      "newton": 31.8599492,
+      "ratio": 0.8772853975548712
+    },
+    {
+      "block": 6,
+      "newton": 32.1619188,
+      "secant": 27.8876178,
+      "ratio": 0.8671005599330099
+    },
+    {
+      "block": 7,
+      "secant": 28.2400698,
+      "newton": 32.006908,
+      "ratio": 0.8823117122091267
+    },
+    {
+      "block": 8,
+      "newton": 32.082121,
+      "secant": 27.9693986,
+      "ratio": 0.8718064058171217
+    },
+    {
+      "block": 9,
+      "secant": 30.0101768,
+      "newton": 33.832813200000004,
+      "ratio": 0.8870139359265578
+    },
+    {
+      "block": 10,
+      "newton": 33.7794844,
+      "secant": 29.245734600000002,
+      "ratio": 0.8657839253461193
+    },
+    {
+      "block": 11,
+      "secant": 28.6405452,
+      "newton": 33.2458428,
+      "ratio": 0.8614774897509893
+    },
+    {
+      "block": 12,
+      "newton": 32.081596399999995,
+      "secant": 28.5016462,
+      "ratio": 0.8884110954029708
+    },
+    {
+      "block": 13,
+      "secant": 28.401441,
+      "newton": 32.5091776,
+      "ratio": 0.8736437860550492
+    },
+    {
+      "block": 14,
+      "newton": 32.3958942,
+      "secant": 28.763148,
+      "ratio": 0.887863993579779
+    },
+    {
+      "block": 15,
+      "secant": 29.043992600000003,
+      "newton": 32.589169399999996,
+      "ratio": 0.8912161044521745
+    },
+    {
+      "block": 16,
+      "newton": 32.6099522,
+      "secant": 29.4729078,
+      "ratio": 0.9038010120112964
+    },
+    {
+      "block": 17,
+      "secant": 29.311924,
+      "newton": 32.304807600000004,
+      "ratio": 0.9073548545139763
+    },
+    {
+      "block": 18,
+      "newton": 33.5787222,
+      "secant": 27.771983,
+      "ratio": 0.8270708704931005
+    },
+    {
+      "block": 19,
+      "secant": 28.9150584,
+      "newton": 31.522477,
+      "ratio": 0.9172838289326058
+    },
+    {
+      "block": 20,
+      "newton": 31.7739162,
+      "secant": 28.85257,
+      "ratio": 0.9080583525929989
+    },
+    {
+      "block": 21,
+      "secant": 27.7704588,
+      "newton": 31.919034399999997,
+      "ratio": 0.870028161002264
+    },
+    {
+      "block": 22,
+      "newton": 31.734644199999998,
+      "secant": 28.1196262,
+      "ratio": 0.886086071196601
+    },
+    {
+      "block": 23,
+      "secant": 27.7859556,
+      "newton": 31.849998600000003,
+      "ratio": 0.8724005281431942
+    },
+    {
+      "block": 24,
+      "newton": 31.8907646,
+      "secant": 28.309630600000002,
+      "ratio": 0.887706235804707
+    },
+    {
+      "block": 25,
+      "secant": 28.4538074,
+      "newton": 31.65718,
+      "ratio": 0.898810551034552
+    },
+    {
+      "block": 26,
+      "newton": 31.799235399999997,
+      "secant": 28.068416600000003,
+      "ratio": 0.882675833142831
+    },
+    {
+      "block": 27,
+      "secant": 30.047842399999997,
+      "newton": 31.9172376,
+      "ratio": 0.941429918734571
+    },
+    {
+      "block": 28,
+      "newton": 32.2336586,
+      "secant": 28.123466,
+      "ratio": 0.8724875556012746
+    },
+    {
+      "block": 29,
+      "secant": 27.6481824,
+      "newton": 31.177644,
+      "ratio": 0.8867951151151767
+    },
+    {
+      "block": 30,
+      "newton": 31.2476412,
+      "secant": 27.3810976,
+      "ratio": 0.8762612648022853
+    },
+    {
+      "block": 31,
+      "secant": 27.3708066,
+      "newton": 31.2492272,
+      "ratio": 0.8758874715468165
+    },
+    {
+      "block": 32,
+      "newton": 31.351488,
+      "secant": 27.5727324,
+      "ratio": 0.8794712518908193
+    },
+    {
+      "block": 33,
+      "secant": 27.9408578,
+      "newton": 31.8400252,
+      "ratio": 0.8775388092343596
+    },
+    {
+      "block": 34,
+      "newton": 31.326054600000003,
+      "secant": 29.2124828,
+      "ratio": 0.9325299075485873
+    },
+    {
+      "block": 35,
+      "secant": 27.583214,
+      "newton": 31.316612600000003,
+      "ratio": 0.8807853631014997
+    },
+    {
+      "block": 36,
+      "newton": 32.6136652,
+      "secant": 27.417177,
+      "ratio": 0.84066531105495
+    },
+    {
+      "block": 37,
+      "secant": 27.427456,
+      "newton": 31.2431724,
+      "ratio": 0.8778703919324147
+    },
+    {
+      "block": 38,
+      "newton": 31.232454399999998,
+      "secant": 28.1529758,
+      "ratio": 0.9014013256671881
+    },
+    {
+      "block": 39,
+      "secant": 27.986385,
+      "newton": 34.7850082,
+      "ratio": 0.8045530660533234
+    },
+    {
+      "block": 40,
+      "newton": 33.154813,
+      "secant": 29.558806,
+      "ratio": 0.8915389147271017
+    },
+    {
+      "block": 41,
+      "secant": 29.2534994,
+      "newton": 32.566748,
+      "ratio": 0.8982628354541264
+    },
+    {
+      "block": 42,
+      "newton": 32.6067968,
+      "secant": 29.3748426,
+      "ratio": 0.9008809660199435
+    },
+    {
+      "block": 43,
+      "secant": 27.9821548,
+      "newton": 32.558724,
+      "ratio": 0.8594364693161809
+    },
+    {
+      "block": 44,
+      "newton": 32.03981,
+      "secant": 27.873128,
+      "ratio": 0.8699529741281237
+    },
+    {
+      "block": 45,
+      "secant": 27.5981702,
+      "newton": 32.1153716,
+      "ratio": 0.8593445700625179
+    },
+    {
+      "block": 46,
+      "newton": 31.4104652,
+      "secant": 27.6594406,
+      "ratio": 0.8805804187834824
+    },
+    {
+      "block": 47,
+      "secant": 27.67541,
+      "newton": 31.3288306,
+      "ratio": 0.8833847120996594
+    },
+    {
+      "block": 48,
+      "newton": 31.503743,
+      "secant": 27.721604199999998,
+      "ratio": 0.8799463670078821
+    },
+    {
+      "block": 49,
+      "secant": 27.4285718,
+      "newton": 31.1959786,
+      "ratio": 0.8792342164255748
+    },
+    {
+      "block": 50,
+      "newton": 32.856669600000004,
+      "secant": 33.572466399999996,
+      "ratio": 1.0217854337860217
+    }
+  ]
+}
